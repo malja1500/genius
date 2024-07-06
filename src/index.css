@@ -1,0 +1,831 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    direction: rtl;
+    overflow-x: hidden !important;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#FAFBFC];
+  }
+  ::selection {
+    @apply bg-primary text-white;
+  }
+}
+
+@layer components {
+  .loginButton {
+    @apply bg-primary text-white rounded-full w-[133px] h-[48px] flex justify-center items-center;
+  }
+  .basket {
+    @apply bg-white dark:bg-gray-800 flex justify-center items-center w-[48px] h-[48px] rounded-full relative;
+  }
+  .basketTotalCoursesAdded {
+    @apply absolute -top-[6px] right-0 bg-primary text-white text-[8px] rounded-full p-1 px-[7px];
+  }
+  .activeMenuItem {
+    @apply text-primaryColor flex flex-col justify-center items-center;
+  }
+  .landingFeaturesWrapper {
+    @apply mt-14 flex flex-col lg:flex-row gap-4 justify-center items-center;
+  }
+  .landingFeatureItem {
+    @apply border border-solid border-[#ffffff29] rounded-[16px] px-[24px] py-[16px] flex flex-col justify-center items-center w-[90%] lg:w-[200px] bg-[#ffffff8f] dark:bg-[#00000008];
+  }
+  .landingFeatureItemImageWrapper {
+    @apply bg-primary w-[64px] h-[64px] flex justify-center items-center rounded-[16px];
+  }
+  .landingFeatureItemValuesWrapper {
+    @apply mt-[16px] flex flex-col justify-center items-center;
+  }
+  .landingFeatureItemNumber {
+    @apply font-[900] text-[23px] text-text1 dark:text-darkText;
+  }
+  .landingFeatureItemLabel {
+    @apply text-text2 dark:text-darkText text-[16px] font-[700] mt-2;
+  }
+  .serviceBox {
+    @apply flex flex-col justify-center items-center rounded-[24px] border border-solid border-[#ECEFF1] dark:border-darkBorder h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
+  }
+  .landingCoursesMappedWrapper {
+    @apply flex flex-wrap gap-[18px] justify-center items-center mx-auto;
+  }
+  .courseItem {
+    @apply mt-10 w-[90%] lg:w-[296px] pb-3 lg:pb-0 lg:h-[389px] rounded-[24px] shadow-primaryShadow px-4;
+  }
+  .courseItemS2 {
+    @apply courseItem w-full lg:w-[296px] mt-0 dark:bg-gray-900;
+  }
+  .courseItemImage {
+    @apply w-[350px] min-w-full lg:w-auto lg:h-[180px] max-h-[220px] lg:max-h-max object-cover rounded-[20px] mt-[16px] cursor-pointer;
+  }
+  .courseItemDetailsBox {
+    @apply flex gap-[3px];
+  }
+  .courseItemDetailsBoxText {
+    @apply font-[500] text-[12px];
+  }
+  .categoryItem {
+    @apply w-[94%] lg:w-[328px] h-[328px] shadow-landingCategoryItemShadow rounded-[32px] bg-white dark:bg-gray-900 flex flex-col justify-center items-center mt-4;
+  }
+  .landingNewsItemStyleTwoBackground {
+    @apply flex gap-1 justify-center items-center bg-secondary dark:bg-gray-900 w-[102px] h-[40px] rounded-[80px];
+  }
+  .landingNewsItemsStyleTwoColor {
+    @apply font-[500] text-primaryColor mt-[1px];
+  }
+  .landingNewsItemsSkeleton {
+    @apply flex flex-col gap-4;
+  }
+  .landingNewsItemsSkeletonHidden {
+    @apply landingNewsItemsSkeleton hidden lg:flex;
+  }
+  .landingTeacherItemCoursesCount {
+    @apply absolute top-8 right-7 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
+  }
+  .footer {
+    @apply bg-footerBackground mt-16 flex flex-col justify-center items-center pt-12 pb-14;
+  }
+  .footerLogoDescriptionBox {
+    @apply flex flex-col items-center bg-inherit w-[420px] text-center;
+  }
+  .footerLogoDescriptionBoxButton {
+    @apply absolute top-2 right-14 lg:right-3 shadow-footerJoinButtonShadow bg-primary text-white w-[77px] h-[40px] rounded-[80px];
+  }
+  .footerLogoDescriptionBoxInput {
+    @apply placeholder:text-text3 shadow-footerJoinInputShadow w-[80%] lg:w-[480px] py-4 rounded-[50px] px-5 pr-20 outline-0;
+  }
+  .footerMenuItems {
+    @apply font-[400] text-white border-l-[1px] pl-5 group-last:border-0 group-last:pl-0;
+  }
+  .footerCopyright {
+    @apply bg-footerCopyRightBackground flex flex-col lg:flex-row justify-between px-10 py-4 rounded-[16px] lg:w-[1280px] lg:h-[64px] mt-9;
+  }
+  .footerSocialMediaBox {
+    @apply flex justify-between items-center gap-2 mt-7 lg:mt-0;
+  }
+  .footerSocialMediaItem {
+    @apply flex justify-center items-center w-[32px] h-[32px] rounded-[50px] bg-socialMediaIcon;
+  }
+  .filterRangeText {
+    @apply font-[500] text-[12px] text-text3 dark:text-darkText;
+  }
+  .coursesGridView {
+    @apply bg-filterGridView dark:bg-gray-900 rounded-[16px] p-[8px] w-[100px] h-[50px] flex gap-2 justify-center items-center;
+  }
+  .coursesGridViewItems {
+    @apply w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
+  }
+  .coursesGridViewItemsActive {
+    @apply bg-white dark:bg-gray-800 w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
+  }
+  .customSelectBoxWrapper {
+    @apply relative after:content-[''] after:absolute after:top-1 after:left-2 after:bg-coursesSelectOptionBackground after:dark:bg-coursesSelectOptionBackgroundDark after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:dark:bg-coursesSelectOptionSortDark before:w-[24px] before:h-[24px] mr-[1.1rem];
+  }
+  .customSelectBox {
+    @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none dark:bg-gray-900;
+  }
+  .courseLikeBox {
+    @apply flex justify-center gap-1 items-center bg-[#FFEBEE] dark:bg-gray-800 text-red font-[500] cursor-pointer rounded-[24px] w-[35px] h-[32px]  -mt-1;
+  }
+  .courseItemStyleTwo {
+    @apply w-full bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] lg:h-[212px] px-3 py-2 flex flex-col lg:flex-row justify-center items-center gap-3;
+  }
+  .courseItemStyleTwoDetailsWrapperFlexBox {
+    @apply flex flex-col lg:flex-row gap-3 items-center mt-[3rem];
+  }
+  .courseItemStyleTwoDetailsWrapper {
+    @apply bg-courseStyleTwoDetails dark:bg-darkBackground w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center py-3;
+  }
+  .courseItemStyleTwoDescription {
+    @apply text-justify font-[500] text-[14px] text-text2 dark:text-darkText mt-1 w-full lg:w-[97%];
+  }
+  /* Course Details */
+  .courseDetailsBox {
+    @apply lg:w-auto flex flex-col lg:flex-row gap-5;
+  }
+  .courseDetailImageBox {
+    @apply flex gap-1 justify-center items-center bg-white dark:bg-gray-900 w-[119px] h-[48px] rounded-[50px];
+  }
+  .courseDetailImageBoxTitle {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .likeDislikeButton {
+    @apply flex gap-2 justify-center items-center w-[83px] h-[48px] rounded-[50px] bg-likeDislikeIcon dark:bg-gray-900;
+  }
+  .likeDislikeButtonText {
+    @apply font-[500] text-[20px] text-text1 dark:text-darkText mt-[6px];
+  }
+  .courseDetailsTitle {
+    @apply font-[700] text-[20px] text-text1 dark:text-darkText mb-3 my-3;
+  }
+  .courseDetailsParagraph {
+    @apply font-[500] text-text2 dark:text-darkText text-justify;
+  }
+  .courseDetailsSidebar {
+    @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] py-2 pb-8 px-2;
+  }
+  .courseDetailsSidebarShowInformationText {
+    @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mt-4;
+  }
+  .courseDetailsInformationItemsWrapper {
+    @apply border-t border-courseDetailsInformationBox dark:border-[#403f3f] mt-5 py-0 w-[90%] mx-auto;
+  }
+  .courseDetailsTeacherBox {
+    @apply flex gap-3 items-center shadow-primaryShadow px-7 w-full h-[112px] mt-5 bg-white dark:bg-gray-900 rounded-[24px];
+  }
+  .mainButton {
+    @apply bg-primary text-white w-[131px] h-[48px] rounded-full flex justify-center items-center;
+  }
+  .courseDetailAddComment {
+    @apply bg-primary text-white w-[81px] h-[32px] rounded-[50px] outline-none shadow-courseAddCommentButton font-[700] text-[12px] mt-2;
+  }
+  .coursesHeroSectionSpanText {
+    @apply font-[700] text-[24px] text-primaryColor dark:text-darkText lg:bg-no-repeat lg:bg-[right_top_2.4rem] h-[50px] pr-10 pt-20 pb-9;
+  }
+  .newsItemText {
+    @apply font-[500] text-[14px] text-primaryColor;
+  }
+  .landingCategorySectionTitleAfter {
+    @apply lg:w-[40%] bg-landingCategoriesTitleAfter dark:bg-landingCategoriesTitleDarkAfter bg-right-top bg-no-repeat lg:pr-[40px] lg:pt-[60px] px-5 lg:px-0;
+  }
+  .showMoreComments {
+    @apply font-[500] text-[14px] text-center text-primaryColor cursor-pointer mb-2;
+  }
+  .courseDetailsList {
+    @apply flex flex-col gap-4;
+  }
+  .courseDetailsList li {
+    @apply list-disc pr-1;
+  }
+  /* Auth Pages */
+  .authFormWrapper {
+    @apply flex flex-col gap-3 mt-7;
+  }
+  .authInput {
+    @apply w-[356px] h-[47px] rounded-md border border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
+  }
+  .loginSubmitButton {
+    @apply bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer;
+  }
+  .doYouHaveAnyAccountOrDoNotHaveAccountOrForgetPasswordText {
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center;
+  }
+  .doYouHaveAnyAccountOrDoNotHaveAccountLink {
+    @apply text-primaryColor;
+  }
+  .authDisableButton {
+    @apply opacity-70 cursor-not-allowed;
+  }
+  .authPhoneNumberInputContainer {
+    @apply flex flex-row-reverse gap-4;
+  }
+  .authPhoneNumberInput {
+    @apply w-[50px] h-[50px] outline-none px-5 rounded-[16px] border dark:bg-darkBackground dark:border-darkBorder;
+  }
+  .authSendVerificationCodeTime {
+    @apply font-[500] text-[24px] text-primaryColor flex justify-center mt-3;
+  }
+  .authPageWrapper {
+    @apply flex flex-col lg:flex-row lg:w-[1109px] mx-auto shadow-primaryShadow rounded-md overflow-hidden px-4 lg:px-0;
+  }
+  .authPageSidebar {
+    @apply bg-[#191b23] lg:w-[37%] lg:h-[520px] pt-14 pb-4 flex flex-col justify-between items-center rounded-t-md;
+  }
+  .authToSiteText {
+    @apply font-[700] text-[30px] text-text1 dark:text-darkText text-center;
+  }
+  .authToSiteDescription {
+    @apply font-[400] text-text3 dark:text-darkText text-center;
+  }
+  .authLeftSide {
+    @apply flex flex-col items-center pt-6 px-5;
+  }
+  .registerCodeNotSend {
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-5;
+  }
+  registerStepOneWrapper {
+    @apply w-full flex flex-col justify-center;
+  }
+  .registerStepOneFormWrapper {
+    @apply mt-7 flex flex-col items-center gap-3;
+  }
+  .registerStepOneSubmitButtonWrapper {
+    @apply flex justify-center mt-7;
+  }
+  .registerSubmitButton {
+    @apply mainButton w-[200px] h-[50px] rounded-md;
+  }
+  .registerStepTwoPhoneNumberInputWrapper {
+    @apply flex flex-col items-center mt-5;
+  }
+  .registerStepThreeWrapper {
+    @apply w-full flex justify-center;
+  }
+  .registerStepTwoThreeSubmitButtonWrapper {
+    @apply flex gap-3 justify-center items-center mt-[0.75rem];
+  }
+  .registerStepThreeFieldsWrapper {
+    @apply flex flex-col w-full gap-3;
+  }
+  .authTopSection {
+    @apply lg:w-[63%] pt-10 h-[570px];
+  }
+  .authHeadingFormWrapper {
+    @apply flex flex-col items-center px-5;
+  }
+  .forgetPasswordFormWrapper {
+    @apply w-full flex justify-center;
+  }
+  .forgetPasswordStepOneFieldWrapper {
+    @apply mt-7 flex flex-col gap-3;
+  }
+  .forgetPasswordStepOneSubmitButton {
+    @apply bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer;
+  }
+  .forgetPasswordStepTwoSubmitButtonWrapper {
+    @apply flex gap-3 justify-center items-center mt-5 w-full;
+  }
+  .forgetPasswordStepTwoSubmitButton {
+    @apply bg-primary text-white w-[200px] h-[50px] rounded-md shadow-primaryShadow cursor-pointer;
+  }
+  /* News Page */
+  .newsHeroSectionWrapper {
+    @apply relative flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[bottom_left_10rem] after:hidden lg:after:block after:absolute after:top-0 after:right-0 after:w-[320px] after:h-[320px] after:bg-newsHeroSectionTitleDescriptionBeforeBackground dark:after:bg-newsHeroSectionTitleDescriptionBeforeDarkBackground after:bg-no-repeat after:z-0 before:hidden lg:before:block before:absolute before:top-64 before:right-72 before:w-[120px] before:h-[120px] before:bg-newsHeroSectionTitleDescriptionCircleBackground before:bg-no-repeat;
+  }
+  .newsSortTab {
+    @apply px-6 lg:!px-4 !h-[20px] !rounded-[12px] dark:bg-gray-900 dark:text-darkText;
+  }
+  .newsSortActiveTab {
+    @apply !bg-primary !text-white flex justify-center items-center shadow-newsSortActiveTabShadow;
+  }
+  .newsTitle {
+    @apply relative font-[800] text-[40px] text-text1 dark:text-darkText mt-5 w-[85%] after:absolute after:-top-8 after:-right-8 after:bg-newsHeroSectionTitleDescriptionBackground dark:after:hidden after:w-[112px] after:h-[112px] after:-z-10;
+  }
+  .newsDescription {
+    @apply font-[500] text-text2 dark:text-darkText text-justify mt-3 w-[72%];
+  }
+  .newsHeroSectionDot {
+    @apply hidden lg:block absolute top-2 lg:-top-10 left-44;
+  }
+  .newsSearchSortWrapper {
+    @apply flex flex-col lg:flex-row justify-center items-center gap-4 mt-4 lg:mt-0;
+  }
+  .newsSortTabsBoxWrapper {
+    @apply w-full lg:w-[450px] bg-white dark:bg-gray-900 rounded-2xl lg:px-4 py-1;
+  }
+  .newsAllSeasCreatedAt {
+    @apply font-[400] text-[14px] text-primaryColor mt-1;
+  }
+  .newsSkeletonWrapper {
+    @apply flex flex-col lg:flex-row justify-center gap-7 mx-auto mt-7 lg:mr-3;
+  }
+  /* Courses */
+  .coursesHeroSection {
+    @apply flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[right_bottom_0rem];
+  }
+  .coursesMainSection {
+    @apply flex flex-col lg:flex-row justify-center gap-x-5 w-[90%] mx-auto mt-32 px-5 lg:px-0;
+  }
+  .coursesFilterSectionWrapper {
+    @apply lg:w-[296px] h-[98%] rounded-[24px] shadow-primaryShadow py-4 bg-white dark:bg-gray-900 hidden lg:block;
+  }
+  .paginatedCoursesWrapper {
+    @apply flex flex-col gap-4;
+  }
+  .paginatedCourses {
+    @apply flex flex-wrap justify-center gap-x-3 gap-y-5 lg:mt-3;
+  }
+  /* Heading */
+  .headingWrapper {
+    @apply flex flex-col justify-center items-center text-text1 dark:text-darkText;
+  }
+  .coursesTab {
+    @apply dark:text-darkText;
+  }
+  /* News Details */
+  .newsDetailsTitle {
+    @apply font-[700] text-[32px] text-text1 dark:text-darkText;
+  }
+  .newsDetailsDescription {
+    @apply font-[400] text-text2 dark:text-darkText mt-2;
+  }
+  .newsDetailsWriterWrapper {
+    @apply flex gap-3 items-center bg-white dark:bg-gray-900 shadow-primaryShadow w-[230px] h-[64px] rounded-[16px] px-3 !mt-4 lg:mt-0;
+  }
+  .newsDetailsWriterImage {
+    @apply w-[40px] h-[40px] rounded-[12px];
+  }
+  .newsDetailsWriterName {
+    @apply font-[700] text-text1 dark:text-darkText;
+  }
+  .newsDetailsMainSectionTitle {
+    @apply font-[700] text-[24px] text-text1 dark:text-darkText mb-3;
+  }
+  .newsDetailsMainSectionDescription {
+    @apply font-[400] text-text2 dark:text-darkText leading-[28px];
+  }
+  .newsDetailsMainSectionLiSpan {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .newsDetailsMainSectionListItem {
+    @apply mr-4 pr-2 list-image-[url('/src/assets/images/NewsDetails/Icons/list-item-dot.svg')];
+  }
+  .newsDetailsCommentsSection {
+    @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] mt-12 px-8 py-6 w-full;
+  }
+  .newsDetailsCommentsText {
+    @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mb-6;
+  }
+  /* Dashboard Layout */
+  .dashboardWrapper {
+    @apply relative flex flex-col lg:flex-row h-full min-h-screen dark:bg-darkBackground;
+  }
+  .dashboardSidebar {
+    @apply bg-primary dark:bg-gray-900 lg:w-[320px] h-full lg:fixed lg:top-0 lg:right-0 flex flex-col py-5;
+  }
+  .dashboardSideBarTopSectionWrapper {
+    @apply w-full px-7 flex justify-between items-center;
+  }
+  .dashboardSidebarUserInfoWrapper {
+    @apply flex items-center gap-3;
+  }
+  .dashboardSidebarAvatar {
+    @apply w-[64px] h-[64px] rounded-[100px];
+  }
+  .dashboardSidebarUsername {
+    @apply font-[700] text-[20px] text-white;
+  }
+  .dashboardSidebarUserPhoneNumber {
+    @apply font-[400] text-[14px] text-white;
+  }
+  .dashboardSideBarNotificationWrapper {
+    @apply relative w-[43px] h-[43px] shadow-dashboardNotificationHomeShadow rounded-full flex justify-center items-center cursor-pointer;
+  }
+  .dashboardSideBarNotificationIcon {
+    @apply w-[20px] h-[20px];
+  }
+  .dashboardSideBarNotificationCount {
+    @apply absolute -top-1 right-0 w-[16px] h-[16px] rounded-full bg-white flex justify-center items-center text-[13px] text-center pt-[4px];
+  }
+  .dashboardLeftSide {
+    @apply lg:w-[1200px] mx-auto lg:mr-[320px] px-7 py-5;
+  }
+  .dashboardDivider {
+    @apply w-full h-[1px] bg-blue-400 mt-7;
+  }
+  .dashboardMappedMenuItemsWrapper {
+    @apply flex flex-col gap-1 px-4 mt-10;
+  }
+  .dashboardMenuItem {
+    @apply flex items-center gap-3 lg:w-[288px] h-[56px] rounded-[10px] px-5;
+  }
+  .dashboardMenuItemHover {
+    @apply hover:bg-dashboardHoverMenuItem transition-colors duration-100;
+  }
+  .dashboardMenuItemLabel {
+    @apply font-[400] text-white;
+  }
+  .dashboardBottomSection {
+    @apply mt-auto px-9 flex justify-between items-center;
+  }
+  .dashboardShowSidebarWrapper {
+    @apply flex gap-3 mr-7 mt-5;
+  }
+  .dashboardShowMobileSideBarText {
+    @apply font-bold text-text1 dark:text-darkText mt-[1px];
+  }
+  /* Dashboard Page */
+  .dashboardProfileInformationWrapper {
+    @apply relative border border-solid border-dashboardUserInfoEditProfileBorder dark:border-darkBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;
+  }
+  .dashboardInformationBoxLabel {
+    @apply font-[500] text-text2 dark:text-darkText;
+  }
+  .dashboardInformationBoxValue {
+    @apply text-primaryColor font-[700];
+  }
+  .dashboardEditProfileLink {
+    @apply mr-auto font-[500] text-primaryColor dark:text-darkText border-t border-r border-solid border-dashboardUserInfoEditProfileBorder dark:border-darkBorder w-[120px] h-[40px] mt-0 absolute bottom-0 left-0 rounded-tr-[12px] flex justify-center items-center;
+  }
+  .dashboardCoursesSection {
+    @apply flex flex-col lg:flex-row gap-7 lg:gap-0 justify-between mt-14;
+  }
+  .dashboardTitle {
+    @apply relative font-[800] text-[22px] text-text1 dark:text-darkText pr-10 before:content-[''] before:absolute before:top-3 before:right-0 before:w-[4px] before:h-[4px] before:bg-primary before:rounded-full after:content-[''] after:absolute after:top-3 after:right-2 after:w-[22px] after:h-[4px] after:bg-primary after:rounded-full;
+  }
+  .dashboardMappedCoursesWrapper {
+    @apply flex flex-col gap-4 mt-6;
+  }
+  .dashboardPageCourseItem {
+    @apply flex items-center gap-3 lg:gap-4 shadow-primaryShadow py-2 px-4 rounded-[12px] lg:w-[475px] h-[100px] dark:bg-gray-900;
+  }
+  .dashboardPageCourseItemImage {
+    @apply lg:w-[120px] rounded-[24px];
+  }
+  .dashboardPageCourseItemLeftSide {
+    @apply flex justify-between w-[70%];
+  }
+  .dashboardPageCourseItemTitle {
+    @apply font-[600] text-text2 dark:text-darkText truncate;
+  }
+  .dashboardPageCourseItemTeacherBoxWrapper {
+    @apply flex gap-1 mt-3;
+  }
+  .dashboardPageCourseItemTeacherName {
+    @apply font-[500] text-[14px] text-text1 dark:text-darkText;
+  }
+  .dashboardPageCourseItemPrice {
+    @apply font-[500] text-primaryColor truncate;
+  }
+  .dashboardMobileSidebarPaper {
+    @apply w-[350px] dark:bg-gray-900 lg:hidden;
+  }
+  /* Common */
+  .satisfaction {
+    @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
+  }
+  .commentFormTitleInput {
+    @apply w-full border border-solid border-commentsBorder dark:border-darkBorder rounded-md h-[40px] outline-primaryColor dark:outline-none px-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900 mb-2;
+  }
+  .commentFormTextarea {
+    @apply border border-solid border-commentsBorder dark:border-darkBorder outline-primaryColor dark:outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 mt-3 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
+  }
+  .addCommentDotImage {
+    @apply border border-solid border-commentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
+  }
+  .childrenComment {
+    @apply lg:border-r lg:border-commentsBorder lg:dark:border-darkBorder mr-1 lg:mr-8 lg:pr-5;
+  }
+  .commentAvatarImage {
+    @apply w-[32px] h-[32px] rounded-full;
+  }
+  .commentsWrapper {
+    @apply mt-7 flex flex-col gap-7;
+  }
+  .commentName {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .commentFormSection {
+    @apply flex gap-4 flex-col items-center;
+  }
+  .commentCreatedAtText {
+    @apply font-[400] text-[12px] text-text3 dark:text-darkText;
+  }
+  .commentMessageText {
+    @apply font-[400] text-[14px] text-text2 dark:text-darkText mt-2;
+  }
+  .commentLikeDislikeCount {
+    @apply font-[700] text-[14px] text-red mt-1 block;
+  }
+  .commentAnswerText {
+    @apply font-[400] text-[14px] text-text2 dark:text-darkText;
+  }
+  /* Dashboard Title Box */
+  .dashboardTitleBoxWrapper {
+    @apply h-[64px] rounded-[12px] flex items-center px-4 bg-dashboardTitleBox dark:bg-gray-900;
+  }
+  .dashboardTitleBoxTitle {
+    @apply relative font-[700] text-[24px] text-text1 dark:text-darkText pr-4 before:content-[''] after:absolute after:top-[5px] after:right-0 after:w-[6px] after:h-[24px] after:bg-primaryColor after:rounded-[8px];
+  }
+  /* Error Message */
+  .errorMessage {
+    @apply text-[14px] text-red;
+  }
+  /* Form */
+  .formFieldWrapperAndPaginatedWrapper {
+    @apply flex flex-col flex-wrap gap-4 mt-5 lg:w-[1280px];
+  }
+  /* Pagination */
+  .paginationWrapper {
+    @apply flex flex-wrap justify-center items-center gap-2 mt-5;
+  }
+  .paginationNext {
+    @apply w-[32px] h-[32px] bg-paginationPreviousBackground rounded-full flex justify-center items-center dark:bg-gray-800;
+  }
+  .paginationPrevious {
+    @apply w-[32px] h-[32px] bg-primary rounded-full flex justify-center items-center;
+  }
+  .paginationPage {
+    @apply mr-2 w-[32px] h-[32px] flex justify-center items-center dark:text-white;
+  }
+  .paginationActive {
+    @apply bg-primary text-white rounded-full;
+  }
+  /* Edit Profile */
+  .editProfileFormLabel {
+    @apply font-bold text-text1 dark:text-darkText block;
+  }
+  .editProfileFormInput {
+    @apply border border-editProfileFormInputBorder dark:border-darkBorder outline-primaryColor dark:outline-none dark:focus:border-editProfileFormInputBorder w-full lg:w-[300px] px-4 py-2 rounded-[7px] focus:shadow-primaryShadow dark:bg-gray-900 dark:text-darkText mt-2;
+  }
+  .editProfileTitleBoxWrapper {
+    @apply h-full min-h-screen rounded-[12px] flex items-center px-4 bg-white;
+  }
+  .editProfileContentSection {
+    @apply flex flex-col items-center mt-10;
+  }
+  .editProfileUploadImageSection {
+    @apply flex flex-col items-center mt-4;
+  }
+  .editProfileImageBox {
+    @apply relative rounded-full overflow-hidden;
+  }
+  .editProfileImage {
+    @apply w-[150px] h-[150px];
+  }
+  .editProfileUploadImageIconWrapper {
+    @apply absolute bottom-0 right-0 bg-black/50 w-[150px] h-[53px] flex justify-center items-center cursor-pointer;
+  }
+  .editProfileUploadImageText {
+    @apply mt-2 font-[500] text-text1 dark:text-darkText;
+  }
+  .editProfileFormFieldsWrapper {
+    @apply w-full flex flex-col lg:flex-row flex-wrap gap-8;
+  }
+  .editProfileSubmitButton {
+    @apply mainButton dark:bg-gray-900 h-[45px] rounded-[7px] mt-12 lg:mr-4;
+  }
+  .editProfileEditPasswordField {
+    @apply editProfileFormInput lg:w-[400px];
+  }
+  .editProfileGenderAndReceiveMessageEventSelectBoxWrapper {
+    @apply relative flex flex-col gap-1 after:content-[''] after:absolute after:w-[50px] after:h-[50px] after:top-[48px] after:left-2 after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxDarkIcon after:bg-no-repeat;
+  }
+  .editProfileGenderAndReceiveMessageEventSelectBox {
+    @apply editProfileFormInput appearance-none;
+  }
+  .editProfileImageModalPaper {
+    @apply lg:!w-[916px] lg:h-[624px] flex justify-center items-center !bg-profileImageModalBackground backdrop-blur-[6.5px] shadow-profileImageModalShadow rounded-[10px] relative;
+  }
+  .editProfileImageModalCloseButton {
+    @apply bg-profileImageModalCloseButton rounded-full w-[26px] h-[26px] absolute top-2 right-2 cursor-pointer flex justify-center items-center;
+  }
+  .editProfileSelectDeleteImageCloseIconWrapper {
+    @apply bg-white dark:bg-gray-900 rounded-full w-[26px] h-[26px] cursor-pointer centerItem;
+  }
+  .editProfileSelectDeleteImageCloseIcon {
+    @apply w-[20px] h-[20px] !fill-red;
+  }
+  /* Dashboard Courses */
+  .dashboardCoursesSectionWrapper {
+    @apply flex flex-col gap-4 mt-6;
+  }
+  .dashboardCoursesInformationBox {
+    @apply hidden lg:flex lg:justify-between items-center lg:gap-0 lg:items-center bg-primary dark:bg-gray-900 text-white rounded-[7px] h-[50px] px-16;
+  }
+  .dashboardCourseItem {
+    @apply w-full lg:h-[60px] bg-primary/10 rounded-[7px] hidden lg:flex flex-col lg:flex-row justify-around items-center px-5;
+  }
+  .dashboardCourseItemImage {
+    @apply w-[75px] h-[50px] rounded-[7px];
+  }
+  .dashboardCourseTitleLink {
+    @apply flex items-center gap-4;
+  }
+  .dashboardCourseTitle {
+    @apply font-[500] text-text1 dark:text-darkText lg:w-[170px] truncate;
+  }
+  .dashboardCourseItemText {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .dashboardCourseItemIconsWrapper {
+    @apply flex gap-3 w-[57px];
+  }
+  .dashboardCourseItemShowIcon {
+    @apply !fill-primaryColor cursor-pointer;
+  }
+  .dashboardCourseItemDeleteIcon {
+    @apply !text-red/100 dark:!fill-red cursor-pointer;
+  }
+  .dashboardMobileCourseItem {
+    @apply flex items-center gap-5 bg-primary/10 rounded-[7px] py-2 px-5 lg:hidden;
+  }
+  .dashboardMobileCourseItemImage {
+    @apply w-[100px] h-[65px] rounded-[7px];
+  }
+  .dashboardMobileCourseItemTitle {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .dashboardMobileCourseItemBoxTwo {
+    @apply flex gap-10 mt-2;
+  }
+  .dashboardMobileCourseItemTeacherIconTitleBox {
+    @apply flex items-center;
+  }
+  .dashboardMobileCourseItemTeacherIcon {
+    @apply w-[20px] h-[20px];
+  }
+  .dashboardMobileCourseItemTeacherName {
+    @apply font-[500] text-text1 dark:text-darkText mt-1;
+  }
+  .dashboardMobileCourseItemPrice {
+    @apply font-[500] text-text1 dark:text-darkText mt-2;
+  }
+  /* Dashboard Courses Per Page Filter */
+  .dashboardCoursesTopSection {
+    @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
+  }
+  .dashboardCoursesPerPageFilter {
+    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxDarkIcon after:bg-no-repeat;
+  }
+  .dashboardCoursesPerPageFilterSelectBox {
+    @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
+  }
+  /* Field Box */
+  .passwordFieldBoxWrapper {
+    @apply relative flex flex-col w-full;
+  }
+  .passwordFieldBoxIconWrapper {
+    @apply absolute left-2 cursor-pointer top-[18px];
+  }
+  /* Date Picker */
+  .darkDatePicker {
+    @apply dark:bg-gray-900 dark:text-darkText border-t-black after:bg-black dark:shadow-primaryShadow;
+  }
+  /* Course Item Skeleton Style Two */
+  .courseItemSkeletonStyleTwoWrapper {
+    @apply w-full flex flex-col items-center gap-5;
+  }
+  .courseItemSkeletonStyleTwo {
+    @apply flex flex-col lg:flex-row lg:items-center gap-5 rounded-[24px] lg:h-[212px] px-7 lg:px-3 py-6 lg:py-2 bg-white dark:bg-gray-900 w-[90%] lg:w-full;
+  }
+  .courseItemStyleTwoImageSkeleton {
+    @apply w-[270px] h-[180px] rounded-[24px];
+  }
+  .courseItemStyleTwoTitleSkeleton {
+    @apply w-[90%] lg:w-[300px] h-[7px];
+  }
+  .courseItemStyleTwoDescriptionSkeleton {
+    @apply lg:w-[380px] h-[7px] mt-2;
+  }
+  /* Center Item */
+  .centerItem {
+    @apply flex justify-center items-center;
+  }
+}
+
+/* Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply w-[100px] h-[100px] bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/prev-arrow.svg")];
+}
+
+.swiper-button-next {
+  @apply w-[100px] h-[100px] bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/next-arrow.svg")];
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply hidden;
+}
+
+.swiper-pagination-bullet {
+  @apply w-[20px] h-[20px] bg-center bg-[url('/src/assets/images/Landing/LandingTeachers/Icons/default-pagination.svg')];
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply bg-transparent bg-[url('/src/assets/images/Landing/LandingTeachers/Icons/active-pagination.svg')];
+}
+
+.swiper-pagination {
+  @apply gap-3 flex justify-center;
+}
+
+.swiper-wrapper {
+  @apply mb-12;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply bg-transparent bg-[url('/src/assets/images/Landing/LandingTeachers/Icons/active-pagination.svg')];
+}
+
+/* Material UI */
+.MuiPaper-root {
+  @apply !shadow-none;
+}
+
+.MuiButtonBase-root {
+  @apply !pr-[22px] !pl-[13px];
+}
+
+.MuiFormControlLabel-root {
+  @apply !m-0;
+}
+
+.MuiAccordionDetails-root {
+  @apply !p-0 !pb-3;
+}
+
+.MuiPaper-root.Mui-expanded {
+  @apply !mt-0;
+}
+
+span.MuiTypography-root {
+  @apply font-[500] text-[14px] text-text2;
+}
+
+.priceFilterCheckbox .MuiButtonBase-root {
+  @apply !p-0 !pl-2;
+}
+
+.MuiAccordionSummary-expandIconWrapper.Mui-expanded.css-yw020d-MuiAccordionSummary-expandIconWrapper
+  img:last-child {
+  @apply !block;
+}
+.MuiAccordionSummary-expandIconWrapper.Mui-expanded.css-yw020d-MuiAccordionSummary-expandIconWrapper
+  img:first-child {
+  @apply !hidden;
+}
+.css-eqpfi5-MuiAccordionSummary-content.Mui-expanded {
+  @apply !my-[12px];
+}
+
+.dark .css-i4bv87-MuiSvgIcon-root {
+  @apply fill-white;
+}
+
+span.MuiTypography-root {
+  @apply dark:text-darkText;
+}
+
+/* Range Slider Input */
+.range-slider {
+  @apply bg-rangeSlider h-[5px];
+}
+
+.range-slider__range,
+.range-slider__thumb {
+  @apply !bg-rangeSliderCompleted;
+}
+
+.range-slider__thumb {
+  @apply !w-[15px] !h-[15px];
+}
+
+/* Date Picker */
+.dark .rmdp-header-values,
+.dark .rmdp-week,
+.dark .rmdp-day {
+  @apply dark:text-darkText;
+}
+
+.rmdp-container {
+  @apply w-full;
+}
+
+/* Back To Up Button */
+.w-back-to-up
+  .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  @apply w-[83%] h-[80%] rounded-full bg-[#F5F5F5] dark:bg-gray-900 fill-primaryColor;
+}
+
+.w-back-to-up svg:first-child circle:last-child {
+  @apply stroke-primaryColor;
+}

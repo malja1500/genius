@@ -1,0 +1,33 @@
+export interface NewsInterface {
+  id: string;
+  title: string;
+  googleTitle: string;
+  googleDescribe: string;
+  miniDescribe: string;
+  describe: string;
+  keyword: string;
+  shortLink: string | null;
+  currentImageAddress: string;
+  currentImageAddressTumb: string;
+  insertDate: string;
+  updateDate: string;
+  currentRate: number;
+  currentView: number;
+  currentLikeCount: number;
+  isSlider: boolean;
+  active: boolean;
+  userId: number;
+  addUserFullName: string;
+  newsCatregoryId: number;
+  newsCatregoryName: string;
+  commentsCount: number;
+  inUsersFavoriteCount: number;
+  currentUserFavoriteId: string;
+  isCurrentUserFavorite: boolean;
+  currentUserSetRate: boolean;
+  currentUserRateNumber: number;
+  currentUserIsLike: boolean;
+  likeId: string;
+  currentUserIsDissLike: boolean;
+  currentDissLikeCount: number;
+}
