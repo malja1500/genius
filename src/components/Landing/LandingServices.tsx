@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Heading } from "../common/Heading";
 import { LandingServicesMapped } from "./LandingServices/LandingServicesMapped";
 

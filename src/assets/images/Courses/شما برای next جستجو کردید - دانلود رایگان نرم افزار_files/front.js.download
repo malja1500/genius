@@ -1,0 +1,46 @@
+(function($) {
+  $(document).ready(function() {
+    $(document).on("change click", "input.edd-currency[name=currency-mode]", function(e) {
+      e.preventDefault();
+      $(".edd-currency-option-selected").removeClass("edd-currency-option-selected");
+      $(this).addClass("edd-currency-option-selected");
+      $('.edd-cart-ajax').show();
+      $('#edd_purchase_form').html('<span class="edd-loading-ajax edd-loading edd-set-currency-loading-wait"></span>');
+      $(".edd-set-currency-loading-wait").css({
+        "display": "block",
+        "position": "initial",
+        "margin": "auto",
+        "width": "5rem",
+        "height": "5rem",
+      });
+      var currency = $(this).val();
+
+      console.log(currency);
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: _f.w,
+        data: {
+          action: "change_edd_currency",
+          wparam: currency,
+        },
+        success: function(r) {
+          if (r.success) {
+            $(document).trigger("edd_change_currency_request____ajax_success", r);
+            window.location.href = window.location.href;
+          } else {
+            $(document).trigger("edd_change_currency_request____ajax_failed", r);
+            window.location.href = window.location.href;
+          }
+        }
+      });
+
+    });
+    $(document.body).on("edd_discount_removed edd_discount_applied", function() {
+      setTimeout(function () {
+        $(".edd_cart_footer_row .edd_cart_total").hide();
+        window.location.reload();
+      }, 10);
+    });
+  });
+})(jQuery);

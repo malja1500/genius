@@ -8,6 +8,7 @@ interface AxiosErrorMessage {
   status: number;
 }
 
+// @ts-ignore
 const baseURL: string = import.meta.env.VITE_BASE_URL;
 
 const instance: AxiosInstance = axios.create({

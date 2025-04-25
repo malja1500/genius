@@ -30,7 +30,7 @@ const ResetPassword = () => {
           />
           <ResetPasswordForm
             configValue={configValue}
-            userId={resetConfirmValue.id}
+            userId={resetConfirmValue?.id}
           />
         </div>
       </div>

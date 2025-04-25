@@ -1,0 +1,62 @@
+/**
+ * @Author: Amirhosseinhpv
+ * @Date:   2021/09/07 20:54:01
+ * @Email:  its@hpv.im
+ * @Last modified by:   amirhp-com
+ * @Last modified time: 2022/04/26 10:59:45
+ * @License: GPLv2
+ * @Copyright: Copyright © Amirhosseinhpv (https://hpv.im), all rights reserved.
+ */
+.logged-in.admin-bar .skiptranslate {
+	top: 2rem;
+}
+
+.ta_magic_review {
+	display: none;
+}
+ /* added by amirhosseinhpv -- 99-12-13 */
+[dir='rtl'] #edd_user_history td,
+ [dir='rtl'] #edd_user_history th,
+ [dir='rtl'] #edd_purchase_receipt *,
+ [dir='rtl'] #edd_purchase_receipt_products * {
+	direction: rtl;
+	text-align: right;
+}
+
+body.page-id-177779 #footer {
+	clear: both;
+}
+
+#edd_resend_key {
+	opacity: 0;
+	display: block;
+	height: 0;
+	padding: 0;
+}
+
+body.logged-in {
+	position: relative;
+}
+
+body.logged-in .skiptranslate {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 2rem;
+	width: 100%;
+	left: 0;
+	z-index: 999;
+}
+
+#wpadminbar {
+	z-index: 99999999999999999999 !important;
+}
+
+
+/*html[dir="rtl"] body.rtl, html[dir="rtl"] body.rtl .press-this a.wp-switch-editor {
+	font-family: Tahoma,Arial,sans-serif !important;
+		letter-spacing: 0 !important;
+}
+html[dir="rtl"] :is(h1, h2, h3, h4, h5, h6){
+		font-family: Arial,sans-serif !important;
+}
+*/

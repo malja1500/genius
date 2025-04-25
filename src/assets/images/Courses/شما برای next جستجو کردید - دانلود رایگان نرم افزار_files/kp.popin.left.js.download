@@ -1,0 +1,76 @@
+var kp_popin_options = {
+    size: 250,
+    trigger_visible: 0.02,
+    trigger_hidden: 1.1,
+    border_radius: 5,
+    shadow: true,
+    closeable: true,
+    position: "left", // 'left' or 'right'
+};
+
+var page_height = Math.max(
+    document.body.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.clientHeight,
+    document.documentElement.scrollHeight,
+    document.documentElement.offsetHeight
+);
+
+var kp_iframe = document.getElementById("kaprila_float_iframe");
+var kp_popin_div = document.getElementById("kaprila_float");
+
+var kp_popin_stylesheet =
+    ".kp_pop_263 { position: fixed; " +
+    kp_popin_options.position +
+    ": -" +
+    (kp_popin_options.size + 10) +
+    "px; bottom: 10px; z-index: 9999; transition: right .75s cubic-bezier(0.63, -0.29, 0.29, 1.32), left .75s cubic-bezier(0.63, -0.29, 0.29, 1.32), bottom .75s cubic-bezier(0.63, -0.29, 0.29, 1.32);" +
+    (kp_popin_options.shadow
+        ? "box-shadow: 0 2px 8px rgb(0 0 0 / 64%)"
+        : void 0) +
+    "} @media (max-width: 600px) {  .kp_pop_263 {width: 100vw; left: 0; bottom: -100%; height: 90px; border-radius: 0;} .kp_close_263 {right: 6px !important; left: unset !important;}" +
+    "iframe{border-radius: 0 !important} }";
+
+var kp_popin_close = document.createElement("div");
+kp_popin_close.innerText = "×";
+kp_popin_close.setAttribute("onclick", "this.parentNode.remove()");
+kp_popin_close.setAttribute("class", "kp_close_263");
+kp_popin_close.setAttribute(
+    "style",
+    "position: absolute; " +
+        (kp_popin_options.position === "right" ? "left" : "right") +
+        ": -8px; top: -8px; font-size: 24px; line-height: 19px; width: 24px; height:24px; text-align: center; cursor: pointer;" +
+        " border-radius: 24px; color: #333; z-index: 2; font-family: sans-serif; background: #ffffffe0;"
+);
+
+kp_popin_options.closeable ? kp_popin_div.appendChild(kp_popin_close) : void 0;
+
+var kp_popin_css = document.createElement("style");
+kp_popin_css.innerHTML = kp_popin_stylesheet;
+kp_popin_div.setAttribute("class", "kp_pop_263");
+document.body.appendChild(kp_popin_css);
+
+function processPopIn() {
+    if (
+        window.scrollY > page_height * kp_popin_options.trigger_visible &&
+        window.scrollY < page_height * kp_popin_options.trigger_hidden
+    ) {
+        if (kp_popin_options.position === "right") {
+            kp_popin_div.style.right = 10 + "px";
+            kp_popin_div.style.bottom =
+                window.innerWidth <= 600 ? "0px" : "10px";
+        } else {
+            kp_popin_div.style.left = 10 + "px";
+            kp_popin_div.style.bottom =
+                window.innerWidth <= 600 ? "0px" : "10px";
+        }
+    } else if (kp_popin_options.position === "right") {
+        kp_popin_div.style.right = -kp_popin_options.size - 10 + "px";
+        kp_popin_div.style.bottom = "-100%";
+    } else {
+        kp_popin_div.style.left = -kp_popin_options.size - 10 + "px";
+        kp_popin_div.style.bottom = "-100%";
+    }
+}
+
+window.addEventListener("scroll", processPopIn);

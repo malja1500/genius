@@ -43,7 +43,7 @@ const TeachersSlider = () => {
       {isLoading ? (
         <div className="flex gap-5">
           {teachersSkeleton.map((value) => (
-            <SwiperSlide>
+            <SwiperSlide key={value}>
               <TeacherSkeleton key={value} />
             </SwiperSlide>
           ))}

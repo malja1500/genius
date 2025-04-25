@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { BackToUp } from "../common/BackToUp";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import VoiceAssistant from "../VoiceAssistant";
 
 const LandingLayout = () => {
   return (
@@ -11,6 +12,7 @@ const LandingLayout = () => {
       <Outlet />
       <Footer />
       <BackToUp />
+      <VoiceAssistant />
     </div>
   );
 };

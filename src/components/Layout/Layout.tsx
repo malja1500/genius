@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 
+import VoiceAssistant from "../VoiceAssistant";
 import { BackToUp } from "../common/BackToUp";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
@@ -11,6 +12,7 @@ const MainLayout = () => {
       <Outlet />
       <Footer />
       <BackToUp />
+      <VoiceAssistant />
     </div>
   );
 };

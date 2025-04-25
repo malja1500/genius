@@ -1,0 +1,37 @@
+.irdonateay_wrawp{
+    padding: 10px;
+    border: 1px solid #000000;
+    font-family: tahoma !important;
+    font-size: 14px;
+}
+.irdonateay_wrawp p span:first-child{
+    display: inline-block;
+    width: 150px;
+    width:23%;
+}
+.irdonateay_wrawp p span:nth-child(2){
+    display: inline-block;
+    width:70%;
+}
+.irdonateay_wrawp p span:nth-child(2) input[type="text"]{
+    height: 28px;
+    width: 100%;
+}
+.irdonateay_wrawp p  input[type="submit"] {
+    background: #00b7cc;
+    border-radius: 4px;
+    font-family: Tahoma !important;
+    font-size: 17px;
+    padding: 12px 66px;
+    font-weight: normal;
+}
+.irdonateay_wrawp .massage{
+    padding: 10px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.irdonateay_wrawp .error{
+    background: #ff7a7a;
+    margin-bottom: 16px;
+}
+

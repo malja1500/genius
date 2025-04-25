@@ -1,12 +1,18 @@
+import { useState } from "react";
+
+import { handleShowImage } from "../../../core/utils/show-image-helper.utils";
+import { useDarkModeSelector } from "../../../redux/darkMode";
 import { TeacherItemsInterface } from "../../../types/teacher-items";
 
-import { useDarkModeSelector } from "../../../redux/darkMode";
-
-import awardIcon from "../../../assets/images/Landing/LandingTeachers/Icons/award.svg";
-import awardDarkIcon from "../../../assets/images/Landing/LandingTeachers/Icons/award-dark.svg";
 import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
+import awardDarkIcon from "../../../assets/images/Landing/LandingTeachers/Icons/award-dark.svg";
+import awardIcon from "../../../assets/images/Landing/LandingTeachers/Icons/award.svg";
 
 const TeacherItem = ({ teacher }: { teacher: TeacherItemsInterface }) => {
+  const [teacherImageSrc, setTeacherImageSrc] = useState(
+    handleShowImage(teacher.pictureAddress!)
+  );
+
   const darkMode = useDarkModeSelector();
 
   return (
@@ -14,12 +20,8 @@ const TeacherItem = ({ teacher }: { teacher: TeacherItemsInterface }) => {
       <div className="w-full flex flex-col justify-center items-center">
         <div className="relative">
           <img
-            src={
-              teacher.pictureAddress === "Not-set" ||
-              teacher.pictureAddress === "undefined"
-                ? blankThumbnail
-                : teacher.pictureAddress
-            }
+            src={teacherImageSrc}
+            onError={() => setTeacherImageSrc(blankThumbnail)}
             className="w-[280px] h-[290px] rounded-[15px] object-cover m-5"
           />
           <div className="landingTeacherItemCoursesCount">

@@ -467,7 +467,7 @@
     @apply flex items-center gap-3 lg:gap-4 shadow-primaryShadow py-2 px-4 rounded-[12px] lg:w-[475px] h-[100px] dark:bg-gray-900;
   }
   .dashboardPageCourseItemImage {
-    @apply lg:w-[120px] rounded-[24px];
+    @apply w-full lg:w-[120px] h-[83px] rounded-[24px];
   }
   .dashboardPageCourseItemLeftSide {
     @apply flex justify-between w-[70%];

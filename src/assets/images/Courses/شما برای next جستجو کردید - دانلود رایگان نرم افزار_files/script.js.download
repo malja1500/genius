@@ -1,0 +1,19 @@
+/**
+ * @Author: Amirhosseinhpv
+ * @Date:   2021/09/07 20:54:27
+ * @Email:  its@hpv.im
+ * @Last modified by:   Amirhosseinhpv
+ * @Last modified time: 2021/09/07 21:17:04
+ * @License: GPLv2
+ * @Copyright: Copyright © Amirhosseinhpv (https://hpv.im), all rights reserved.
+ */
+setTimeout( console.log.bind( console, `%cCustom JS Loaded at frontend!\nDeveloped by Amirhp-com (https://amirhp.com/) `, "color:cyan;", "" ) );
+(function ($) {
+  $(document).ready(function () {
+    if ($("body").is(".edd-second-currency")) {
+      setTimeout(function () {
+        $(".notranslate.en.united-states.single-language.flag").click();
+      }, 1500);
+    }
+  });
+})(jQuery);
